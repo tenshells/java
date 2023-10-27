@@ -15,7 +15,11 @@ public class Sorter implements Callable<ArrayList<Integer>>{
 
     public ArrayList<Integer> call() throws Exception{
         int s = A.size();
+
+        System.out.println("Handling "+A+" in "+Thread.currentThread().getName());
+
         if(s<=1){
+            // System.out.println("Handled "+A+" in "+Thread.currentThread().getName());
             return A;
         }
         
@@ -62,6 +66,7 @@ public class Sorter implements Callable<ArrayList<Integer>>{
             rr++;
         }
 
+        System.out.println("Handled "+ans+" in "+Thread.currentThread().getName());
         return ans;
     }
 }
