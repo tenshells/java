@@ -8,12 +8,16 @@ import java.util.concurrent.Future;
 
 public class MergeSort {
     public static void main(String[] args) {
+
+        long start = System.currentTimeMillis();
+
         ArrayList<Integer> toSort = new ArrayList<Integer>(List.of(5,3,7,1,8,5,8,9));
+        ExecutorService easy = Executors.newCachedThreadPool();
 
-        Sorter s = new Sorter(toSort);
+        Sorter s = new Sorter(toSort,easy);
 
-        ExecutorService es = Executors.newCachedThreadPool();
-        Future<ArrayList<Integer>> f = es.submit(s);
+        // ExecutorService es = Executors.newCachedThreadPool();
+        Future<ArrayList<Integer>> f = easy.submit(s);
         
         ArrayList<Integer> ans = new ArrayList<>();
 
@@ -23,10 +27,14 @@ public class MergeSort {
             // TODO: handle exception
             System.out.println("Got an exception here : ) \n\t"+e);
         } finally{
-            es.shutdown();
+            easy.shutdown();
         }
-        System.out.println("Sorted Array is : ");
+        
+        long end = System.currentTimeMillis();
 
+
+        System.out.println("Sorted Array is : ");
+        System.out.println("Time taken = "+(end-start)+" ms");
         for(int i: ans){
             System.out.print(i+" ");
         }

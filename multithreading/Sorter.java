@@ -8,9 +8,11 @@ import java.util.concurrent.Future;
 
 public class Sorter implements Callable<ArrayList<Integer>>{
     ArrayList<Integer> A;
+    ExecutorService es;
 
-    Sorter(ArrayList<Integer> x){
+    Sorter(ArrayList<Integer> x, ExecutorService easy){
         this.A = x;
+        this.es = easy;
     }
 
     public ArrayList<Integer> call() throws Exception{
@@ -24,21 +26,21 @@ public class Sorter implements Callable<ArrayList<Integer>>{
         ArrayList<Integer> left = new ArrayList<Integer>(A.subList(0, mid));
         ArrayList<Integer> right = new ArrayList<Integer>(A.subList(mid, s));
 
-        Sorter leftSorter = new Sorter(left);
-        Sorter righSorter = new Sorter(right);
+        Sorter leftSorter = new Sorter(left,es);
+        Sorter righSorter = new Sorter(right,es);
 
-        ExecutorService esL = Executors.newCachedThreadPool();
-        ExecutorService esR = Executors.newCachedThreadPool();
+        // ExecutorService esL = Executors.newCachedThreadPool();
+        // ExecutorService esR = Executors.newCachedThreadPool();
 
-        Future<ArrayList<Integer>> PreLSort = esL.submit(leftSorter);
-        Future<ArrayList<Integer>> PreRSort = esR.submit(righSorter);
+        Future<ArrayList<Integer>> PreLSort = es.submit(leftSorter);
+        Future<ArrayList<Integer>> PreRSort = es.submit(righSorter);
         ArrayList<Integer> ans = new ArrayList<>();
         
         ArrayList<Integer> sortedL = PreLSort.get();
         ArrayList<Integer> sortedR = PreRSort.get();
 
-        esL.shutdown();
-        esR.shutdown();
+        // esL.shutdown();
+        // esR.shutdown();
 
         int ll = 0, rr = 0;
         while(ll<sortedL.size() && rr<sortedR.size()){
@@ -62,6 +64,8 @@ public class Sorter implements Callable<ArrayList<Integer>>{
             rr++;
         }
 
+        System.out.println("Handled "+ans+" in "+Thread.currentThread().getName());
+        es.shutdown();
         return ans;
     }
 }
