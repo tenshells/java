@@ -1,4 +1,5 @@
-public class printUtil {
+package p;
+public class p {
     public static void print(String s){
         System.out.print(s);
     }
