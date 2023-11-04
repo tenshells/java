@@ -1,4 +1,4 @@
-package multithreading;
+package multithreading.MergeSort;
 
 import java.util.ArrayList;
 import java.util.List;

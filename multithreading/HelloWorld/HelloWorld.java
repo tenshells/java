@@ -1,4 +1,4 @@
-package multithreading;
+package multithreading.HelloWorld;
 
 class HelloWorld{
     public static void main(String[] args) {
