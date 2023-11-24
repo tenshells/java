@@ -113,6 +113,7 @@ public class Game {
         p.printl("Do you wish to undo ? ");
         Scanner s = new Scanner(System.in);
         String undo = s.next();
+        s.close();
         if(undo.equalsIgnoreCase("Y")){
             doUndo();
             return true;

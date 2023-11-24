@@ -15,7 +15,7 @@ public class Bot extends Player{
     }
 
     @Override
-    Move makeMove(Board b){
+    public Move makeMove(Board b){
         System.out.println("Autoplaying "+this.getName()+"'s move : ");
         Move m =  botStrategy.makeMove(b);
         if(m!=null){
