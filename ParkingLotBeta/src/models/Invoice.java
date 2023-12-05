@@ -1,8 +1,8 @@
-package ParkingLot.src.models;
+package ParkingLotBeta.src.models;
 
 import java.sql.Time;
 
-import ParkingLot.src.strategy.FeeCalculationStrategy;
+import ParkingLotBeta.src.strategy.FeeCalculationStrategy;
 
 public class Invoice {
     private int id;

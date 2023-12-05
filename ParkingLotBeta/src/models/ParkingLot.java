@@ -1,9 +1,9 @@
-package ParkingLot.src.models;
+package ParkingLotBeta.src.models;
 
 import java.util.List;
 
-import ParkingLot.src.strategy.FeeCalculationStrategy;
-import ParkingLot.src.strategy.SlotAllotmentStrategy;
+import ParkingLotBeta.src.strategy.FeeCalculationStrategy;
+import ParkingLotBeta.src.strategy.SlotAllotmentStrategy;
 
 public class ParkingLot {
     private int id;

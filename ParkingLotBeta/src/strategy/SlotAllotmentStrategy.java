@@ -1,4 +1,4 @@
-package ParkingLot.src.strategy;
+package ParkingLotBeta.src.strategy;
 
 public class SlotAllotmentStrategy {
     

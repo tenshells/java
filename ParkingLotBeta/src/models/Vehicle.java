@@ -1,4 +1,4 @@
-package ParkingLot.src.models;
+package ParkingLotBeta.src.models;
 
 public class Vehicle {
     private int id;

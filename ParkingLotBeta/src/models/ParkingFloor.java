@@ -1,4 +1,4 @@
-package ParkingLot.src.models;
+package ParkingLotBeta.src.models;
 
 import java.util.List;
 
