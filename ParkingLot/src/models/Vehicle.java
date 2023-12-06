@@ -37,6 +37,5 @@ public class Vehicle extends BaseModel{
     public void setVehicleNumberPrefix(String vehicleNumberPrefix) {
         this.vehicleNumberPrefix = vehicleNumberPrefix;
     }
-
     
 }

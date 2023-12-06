@@ -1,4 +1,4 @@
-package ParkingLot.src.strategies;
+package ParkingLot.src.strategies.interfaces;
 
 public interface FeeCalculationStrategy {
     public void calculateFee();
