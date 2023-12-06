@@ -1,8 +1,10 @@
 package simply;
 
 public class A {
-    AA a = new BB();
-    a.greeting();
+    public static void main(String[] args) {
+        AA a = new BB();
+        a.greeting();
+    }
 }
 
 
